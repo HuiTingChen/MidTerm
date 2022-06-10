@@ -91,7 +91,7 @@ class _SubjectScreenState extends State<SubjectScreen> {
                                       child: CachedNetworkImage(
                                         height: 100.0,
                                         imageUrl: CONSTANTS.server +
-                                            "/mytutor/courses/" +
+                                            "/mytutor/mobile/assets/courses/" +
                                             subjectList[index]
                                                 .subjectId
                                                 .toString() +
@@ -255,7 +255,7 @@ class _SubjectScreenState extends State<SubjectScreen> {
               children: [
                 CachedNetworkImage(
                   imageUrl: CONSTANTS.server +
-                      "/mytutor/courses/" +
+                      "/mytutor/mobile/assets/courses/" +
                       subjectList[index].subjectId.toString() +
                       '.png',
                   fit: BoxFit.cover,

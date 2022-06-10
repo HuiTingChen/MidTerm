@@ -92,7 +92,7 @@ class _TutorScreenState extends State<TutorScreen> {
                                         flex: 10,
                                         child: CachedNetworkImage(
                                           imageUrl: CONSTANTS.server +
-                                              "/mytutor/assets/tutors/" +
+                                              "/mytutor/mobile/assets/tutors/" +
                                               tutorList[index]
                                                   .tutorId
                                                   .toString() +
@@ -239,7 +239,7 @@ class _TutorScreenState extends State<TutorScreen> {
               children: [
                 CachedNetworkImage(
                   imageUrl: CONSTANTS.server +
-                      "/mytutor/assets/tutors/" +
+                      "/mytutor/mobile/assets/tutors/" +
                       tutorList[index].tutorId.toString() +
                       '.jpg',
                   fit: BoxFit.cover,
