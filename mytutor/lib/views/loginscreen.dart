@@ -21,9 +21,9 @@ class _LoginScreenState extends State<LoginScreen> {
   late double screenHeight, screenWidth, ctrwidth;
   bool remember = false;
   final TextEditingController emailController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  bool _isObscure = true;
 
   @override
   void initState() {
@@ -90,12 +90,21 @@ class _LoginScreenState extends State<LoginScreen> {
                               const SizedBox(height: 15),
                               TextFormField(
                                 controller: passwordController,
-                                obscureText: true,
+                                obscureText: _isObscure,
                                 decoration: InputDecoration(
-                                    labelText: "Password",
+                                    labelText: 'Password',
                                     border: OutlineInputBorder(
                                         borderRadius:
-                                            BorderRadius.circular(5.0))),
+                                            BorderRadius.circular(5.0)),
+                                    suffixIcon: IconButton(
+                                        icon: Icon(_isObscure
+                                            ? Icons.visibility
+                                            : Icons.visibility_off),
+                                        onPressed: () {
+                                          setState(() {
+                                            _isObscure = !_isObscure;
+                                          });
+                                        })),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Please enter your password';
