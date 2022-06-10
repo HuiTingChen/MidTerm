@@ -268,19 +268,46 @@ class _SubjectScreenState extends State<SubjectScreen> {
                   subjectList[index].subjectName.toString(),
                   style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 10),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text("Subject Description: \n" +
-                      subjectList[index].subjectDesc.toString()),
-                  Text("Price: RM " +
-                      double.parse(subjectList[index].subjectPrice.toString())
-                          .toStringAsFixed(2)),
-                  Text("Session: " +
-                      subjectList[index].subjectSessions.toString() +
-                      " sessions"),
-                  Text("Subject Rating: " +
-                      subjectList[index].subjectRating.toString()),
+                  RichText(
+                    textAlign: TextAlign.justify,
+                    text: TextSpan(
+                      style: DefaultTextStyle.of(context).style,
+                      children: [
+                        const TextSpan(
+                            text: "\nSubject Description: \n",
+                            style: TextStyle(fontWeight: FontWeight.w900)),
+                        TextSpan(
+                            text: subjectList[index].subjectDesc.toString()),
+                        const TextSpan(
+                            text: "\n\nTutor: ",
+                            style: TextStyle(fontWeight: FontWeight.w900)),
+                        TextSpan(text: subjectList[index].tutorName.toString()),
+                        const TextSpan(
+                            text: "\n\nPrice: ",
+                            style: TextStyle(fontWeight: FontWeight.w900)),
+                        const TextSpan(text: " RM "),
+                        TextSpan(
+                            text: double.parse(
+                                    subjectList[index].subjectPrice.toString())
+                                .toStringAsFixed(2)),
+                        const TextSpan(
+                            text: "\n\nSession: ",
+                            style: TextStyle(fontWeight: FontWeight.w900)),
+                        TextSpan(
+                          text: subjectList[index].subjectSessions.toString(),
+                        ),
+                        const TextSpan(text: " sessions"),
+                        const TextSpan(
+                            text: "\n\nSubject Rating: ",
+                            style: TextStyle(fontWeight: FontWeight.w900)),
+                        TextSpan(
+                            text: subjectList[index].subjectRating.toString()),
+                      ],
+                    ),
+                  ),
                 ]),
               ],
             )),

@@ -252,14 +252,29 @@ class _TutorScreenState extends State<TutorScreen> {
                   tutorList[index].tutorName.toString(),
                   style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 10),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text("Tutor Description: \n" +
-                      tutorList[index].tutorDesc.toString()),
-                  Text("Email: " + tutorList[index].tutorEmail.toString()),
-                  Text("Phone Number: " +
-                      tutorList[index].tutorPhone.toString()),
+                  RichText(
+                    textAlign: TextAlign.justify,
+                    text: TextSpan(
+                      style: DefaultTextStyle.of(context).style,
+                      children: [
+                        const TextSpan(
+                            text: "\nTutor Description: \n",
+                            style: TextStyle(fontWeight: FontWeight.w900)),
+                        TextSpan(text: tutorList[index].tutorDesc.toString()),
+                        const TextSpan(
+                            text: "\n\nEmail: ",
+                            style: TextStyle(fontWeight: FontWeight.w900)),
+                        TextSpan(text: tutorList[index].tutorEmail.toString()),
+                        const TextSpan(
+                            text: "\n\nPhone Number: ",
+                            style: TextStyle(fontWeight: FontWeight.w900)),
+                        TextSpan(text: tutorList[index].tutorPhone.toString()),
+                      ],
+                    ),
+                  ),
                 ]),
               ],
             )),

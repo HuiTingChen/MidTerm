@@ -29,7 +29,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController addressController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   final TextEditingController _pass2Controller = TextEditingController();
-  
+  bool _isObscure = true;
   final _formKey = GlobalKey<FormState>();
   
 
@@ -177,12 +177,22 @@ class _RegisterPageState extends State<RegisterPage> {
                               const SizedBox(height: 15),
                               TextFormField(
                                 controller: _passController,
-                                obscureText: true,
+                                obscureText: _isObscure,
                                 decoration: InputDecoration(
                                     labelText: "Password",
                                     prefixIcon: const Icon(Icons.lock_outline),
                                     border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5.0))),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0)),
+                                    suffixIcon: IconButton(
+                                        icon: Icon(_isObscure
+                                            ? Icons.visibility
+                                            : Icons.visibility_off),
+                                        onPressed: () {
+                                          setState(() {
+                                            _isObscure = !_isObscure;
+                                          });
+                                        })),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Please enter your password';
@@ -200,12 +210,22 @@ class _RegisterPageState extends State<RegisterPage> {
                               const SizedBox(height: 15),
                               TextFormField(
                                 controller: _pass2Controller,
-                                obscureText: true,
+                                obscureText: _isObscure,
                                 decoration: InputDecoration(
                                     labelText: "Re-enter Password",
                                     prefixIcon: const Icon(Icons.lock_outline),
                                     border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5.0))),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0)),
+                                    suffixIcon: IconButton(
+                                        icon: Icon(_isObscure
+                                            ? Icons.visibility
+                                            : Icons.visibility_off),
+                                        onPressed: () {
+                                          setState(() {
+                                            _isObscure = !_isObscure;
+                                          });
+                                        })),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Please re-enter your password correctly';
